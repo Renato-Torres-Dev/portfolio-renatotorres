@@ -24,3 +24,79 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.magnetic-glow {
+  position: relative;
+  overflow: hidden;
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-opacity: 0;
+}
+
+.magnetic-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120px circle at var(--glow-x) var(--glow-y),
+    rgba(99, 102, 241, 0.35),
+    transparent 60%
+  );
+  opacity: var(--glow-opacity);
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.cursor-trail {
+  opacity: 0.7;
+  filter: blur(2px);
+  transform: translate(-50%, -50%);
+  transition: background-color 0.2s ease;
+}
+
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-opacity: 0;
+  transition: transform 0.3s ease;
+}
+
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120px circle at var(--glow-x) var(--glow-y),
+    rgba(99, 102, 241, 0.25),
+    transparent 60%
+  );
+  opacity: var(--glow-opacity);
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-opacity: 0;
+  transition: transform 0.2s ease;
+  transform-style: preserve-3d;
+}
+
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120px circle at var(--glow-x) var(--glow-y),
+    rgba(99, 102, 241, 0.25),
+    transparent 60%
+  );
+  opacity: var(--glow-opacity);
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
