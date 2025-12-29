@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useMagneticCard } from "@/hooks/useMagneticCard";
+import ParticlesConnect from "../ui/ParticlesConnect";
 
 interface Skill {
   name: string;
@@ -28,7 +29,17 @@ const skills: Skill[] = [
 
 export default function SkillsSection() {
   return (
-    <section className="relative z-10 px-6 py-32 bg-[#0B0E14]">
+    <section className="relative z-10 px-6 py-32">
+      <motion.div
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="absolute inset-0"
+      >
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10"/>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.15),transparent_60%)]"/>
+      </motion.div>
+      <ParticlesConnect />
       <div className="max-w-7xl mx-auto">
         <h2 className="mb-16 text-4xl font-bold text-white">Skills</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-10">
@@ -52,7 +63,7 @@ function SkillCard({ skill, delay }: SkillCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay }} // aceleramos a animação
-      className="skill-card rounded-2xl p-8 text-center border border-white/10 cursor-pointer bg-white/5"
+      className="skill-card relative z-30 rounded-2xl p-8 text-center border border-white/10 cursor-pointer bg-white/5"
     >
       <span className="block text-xl font-semibold text-white mb-2">{skill.name}</span>
       <div className="h-2 w-16 mx-auto rounded-full" style={{ backgroundColor: skill.color }} />

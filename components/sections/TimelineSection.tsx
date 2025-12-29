@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ParticlesBackground from "../ui/ParticlesBackground";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,7 +64,17 @@ export default function TimelineSection() {
 
     return (
         <section className="relative z-10 px-6 py-32 bg-[#0B0E14]" ref={containerRef}>
-            <div className="max-w-7xl mx-auto">
+            <motion.div
+                initial={{ scale: 1.1 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 2, ease: "easeOut" }}
+                className="absolute inset-0"
+            >
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10"/>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.15),transparent_60%)]"/>
+            </motion.div>
+            <ParticlesBackground />
+            <div className="max-w-7xl mx-auto relative z-10">
                 <h2 className="mb-16 text-4xl font-bold text-white">Timeline Profissional</h2>
 
                 <div className="relative ml-4 border-l-2 border-indigo-500">
