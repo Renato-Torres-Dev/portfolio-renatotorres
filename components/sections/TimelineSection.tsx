@@ -8,35 +8,12 @@ import ParticlesBackground from "../ui/ParticlesBackground";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface Experience {
-    year: string;
-    role: string;
-    company: string;
-    description: string;
+interface TimelineProps {
+    dict: any;
 }
 
-const experiences: Experience[] = [
-    {
-        year: "2023 - Present",
-        role: "FrontEnd Developer",
-        company: "Grupo Moura",
-        description: "Responsável pela manutenção e atualização dos sites institucionais da empresa."
-    },
-    {
-        year: "2023 - 2024",
-        role: "Frontend Developer",
-        company: "Recife Centro",
-        description: "Desenvolvimento do site com integrações via API e redes sociais."
-    },
-    {
-        year: "2025",
-        role: "FrontEnd Developer",
-        company: "PAD Saúde",
-        description: "Criação do site e aplicação interna do sistema completo da clínica."
-    }
-];
-
-export default function TimelineSection() {
+export default function TimelineSection({ dict }: TimelineProps) {
+    const experiences = dict.timeline.experiences;
     const containerRef = useRef<HTMLDivElement>(null);
     
     useEffect(() => {
@@ -78,7 +55,7 @@ export default function TimelineSection() {
                 <h2 className="mb-16 text-4xl font-bold text-white">Timeline Profissional</h2>
 
                 <div className="relative ml-4 border-l-2 border-indigo-500">
-                    {experiences.map((exp, index) => (
+                    {experiences.map((exp: any, index: number) => (
                         <div key={index} className="timeline-item mb-16 relative pl-8">
                             <span className="absolute -left-5 top-1 h-4 w-4 rounded-full bg-indigo-500" />
                             <h3 className="text-xl font-semibold text-white">{exp.role}</h3>

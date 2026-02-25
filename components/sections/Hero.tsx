@@ -4,7 +4,11 @@ import ParticlesHome from "../ui/ParticlesHome";
 import SmoothScrollLink from "../ui/SmoothScrollLink";
 import { motion } from "framer-motion"
 
-export default function HeroSection() {
+interface HeroProps {
+    dict: any;
+}
+
+export default function HeroSection({ dict }: HeroProps) {
     return (
         <section className="relative h-screen w-full overflow-hidden bg-[#0B0E14]">
             <motion.div
@@ -26,7 +30,7 @@ export default function HeroSection() {
                         transition={{ delay: 0.2, duration: 0.8 }}
                         className="text-[72px] font-bold leading-none tracking-tight text-white"
                     >
-                        Renato Torres
+                        {dict.hero.title}
                     </motion.h1>
 
                     <motion.h2
@@ -35,8 +39,7 @@ export default function HeroSection() {
                         transition={{ delay: 0.4, duration: 0.8 }}
                         className="mt-6 max-w-2xl text-xl text-white/70"
                     >
-                        Front-End Developer focado em criar experiências digitais modernas 
-                        performáticas e memoráveis.
+                        {dict.hero.description}
                     </motion.h2>
 
                     <motion.div
@@ -49,13 +52,13 @@ export default function HeroSection() {
                             href="#projects"
                             className="rounded-full bg-indigo-500 px-8 py-4 text-sm font-semibold text-white transition hover:bg-indigo-400"
                         >
-                            Ver Projetos
+                            {dict.hero.button1}
                         </SmoothScrollLink>
                         <SmoothScrollLink
                             href="#contact"
                             className="rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-indigo-500/30"
                         >
-                            Entrar em Contato
+                            {dict.hero.button2}
                         </SmoothScrollLink>
                     </motion.div>
                 </div>

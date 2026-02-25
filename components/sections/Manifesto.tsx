@@ -7,7 +7,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ManifestoSection() {
+interface ManifestoProps {
+    dict: any;
+}
+
+export default function ManifestoSection({ dict }: ManifestoProps) {
     const sectionRef = useRef<HTMLDivElement>(null);
     const bgRef = useRef<HTMLDivElement>(null);
 
@@ -57,9 +61,7 @@ export default function ManifestoSection() {
                     transition={{ duration: 0.9, delay: 0.1 }}
                     className="max-w-4xl text-5xl font-bold leading-tight text-white"
                 >
-                    Código não é só lógica.
-                    <br />
-                    É experiência, movimento e intenção.
+                    {dict.manifesto.title}
                 </motion.h2>
 
                 <motion.p
@@ -69,9 +71,7 @@ export default function ManifestoSection() {
                     transition={{ duration: 0.9, delay: 0.2 }}
                     className="mt-10 max-w-3xl text-lg text-white/70"
                 >
-                    Eu desenvolvo interfaces que vão além do visual. Cada decisão - do 
-                    layout à performance - é pensada para criar produtos digitais claros, 
-                    intuitivos e memoráveis.
+                    {dict.manifesto.description}
                 </motion.p>
             </div>
         </section>

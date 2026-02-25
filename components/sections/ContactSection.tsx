@@ -3,7 +3,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function ContactSection() {
+interface ContactProps {
+    dict: any;
+}
+
+export default function ContactSection({ dict }: ContactProps) {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
@@ -38,7 +42,7 @@ export default function ContactSection() {
                 <motion.input
                 type="text"
                 name="name"
-                placeholder="Nome"
+                placeholder={dict.contact.name}
                 value={form.name}
                 onChange={handleChange}
                 required
@@ -52,7 +56,7 @@ export default function ContactSection() {
                 <motion.input
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder={dict.contact.email}
                 value={form.email}
                 onChange={handleChange}
                 required
@@ -65,7 +69,7 @@ export default function ContactSection() {
 
                 <motion.textarea
                 name="message"
-                placeholder="Mensagem"
+                placeholder={dict.contact.message}
                 value={form.message}
                 onChange={handleChange}
                 required
@@ -83,7 +87,7 @@ export default function ContactSection() {
                 whileTap={{ scale: 0.95 }}
                 className="rounded-full bg-indigo-500 px-8 py-4 text-white font-semibold text-lg transition cursor-pointer"
                 >
-                Enviar Mensagem
+                {dict.contact.submit}
                 </motion.button>
             </form>
         </div>

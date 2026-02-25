@@ -7,51 +7,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface Project {
-    id: number;
-    title: string;
-    description: string;
-    image: string;
-    technologies: string[];
-    link: string;
+interface ProjectsProps {
+    dict: any;
 }
 
-const projects: Project[] = [
-    {
-        id: 1,
-        title: "Baterias Moura",
-        description: "Design moderno e responsivo com performance otimizada.",
-        image: "/moura-home.png",
-        technologies: ["NextJS", "Tailwind", "Shadcn"],
-        link: "https://www.moura.com.br/",
-    },
-    {
-        id: 2,
-        title: "PAD Saúde",
-        description: "Design responsivo e interface interativa.",
-        image: "/padsaude-home.png",
-        technologies: ["NextJS", "Tailwind", "Shadcn"],
-        link: "https://www.padsaude.com.br/",
-    },
-    {
-        id: 3,
-        title: "Recife Centro",
-        description: "Design moderno com integrações via API e Instagram.",
-        image: "/recifecentro-home.png",
-        technologies: ["NextJS", "Tailwind", "Shadcn"],
-        link: "https://front-qa.recifecentro.com.br",
-    },
-    {
-        id: 4,
-        title: "Casas Léo",
-        description: "Design modernizado e intuitivo com integração com API.",
-        image: "/casasleo-home.png",
-        technologies: ["NextJS", "Tailwind", "PHP"],
-        link: "https://casasleo.com.br",
-    },
-];
-
-export default function ProjectsSectin() {
+export default function ProjectsSection({ dict }: ProjectsProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -83,7 +43,7 @@ export default function ProjectsSectin() {
                 <h2 className="mb-16 text-4xl font-bold text-white">Projetos</h2>
 
                 <div className="flex flex-col gap-32">
-                    {projects.map((project, index) => (
+                    {dict.projects.description.map((project: any, index: number) => (
                         <div
                             key={project.id}
                             className={`project-card flex flex-col lg:flex-row items-center justify-around gap-10 lg:gap-20 ${
@@ -112,7 +72,7 @@ export default function ProjectsSectin() {
                                 </h3>
                                 <p className="text-white/70 mb-4">{project.description}</p>
                                 <p className="mb-4">
-                                    {project.technologies.map((tech) => (
+                                    {project.technologies.map((tech: string) => (
                                         <span
                                             key={tech}
                                             className="mr-2 rounded-full bg-indigo-500/20 px-3 py-1 text-sm text-indigo-400"
