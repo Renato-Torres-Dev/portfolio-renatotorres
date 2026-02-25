@@ -4,7 +4,8 @@ import React from "react";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import LanguageSelector from "@/components/ui/LanguageSelector";
 import "@/app/globals.css";
-import { Locale } from "@/lib/i18n-config";
+import { i18n, Locale } from "@/lib/i18n-config";
+import { notFound } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +27,13 @@ export default function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = React.use(params);
+  
+  if (!i18n.locales.includes(locale as any)) {
+    notFound();
+  }
   
   return (
     <html lang={locale}>
