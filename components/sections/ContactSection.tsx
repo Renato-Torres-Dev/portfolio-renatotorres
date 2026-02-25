@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { sendEmail } from "@/lib/emailjs";
 
 interface ContactProps {
     dict: any;
@@ -10,16 +11,32 @@ interface ContactProps {
 export default function ContactSection({ dict }: ContactProps) {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(form);
-    setSubmitted(true);
-    setForm({ name: "", email: "", message: "" });
+    setLoading(true);
+    setError("");
+
+    try {
+      const result = await sendEmail(form);
+      
+      if (result.success) {
+        setSubmitted(true);
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setError(result.error || "Falha ao enviar mensagem. Tente novamente.");
+      }
+    } catch (err) {
+      setError("Erro ao enviar mensagem. Tente novamente.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -35,6 +52,17 @@ export default function ContactSection({ dict }: ContactProps) {
                 className="mb-8 text-center text-green-400"
                 >
                 Mensagem enviada com sucesso!
+                </motion.div>
+            )}
+
+            {error && (
+                <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="mb-8 text-center text-red-400"
+                >
+                {error}
                 </motion.div>
             )}
 
@@ -83,11 +111,16 @@ export default function ContactSection({ dict }: ContactProps) {
 
                 <motion.button
                 type="submit"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="rounded-full bg-indigo-500 px-8 py-4 text-white font-semibold text-lg transition cursor-pointer"
+                whileHover={{ scale: loading ? 1 : 1.05 }}
+                whileTap={{ scale: loading ? 1 : 0.95 }}
+                disabled={loading}
+                className={`rounded-full px-8 py-4 text-white font-semibold text-lg transition cursor-pointer ${
+                    loading 
+                        ? 'bg-gray-500 cursor-not-allowed' 
+                        : 'bg-indigo-500 hover:bg-indigo-600'
+                }`}
                 >
-                {dict.contact.submit}
+                {loading ? 'Enviando...' : dict.contact.submit}
                 </motion.button>
             </form>
         </div>
