@@ -78,7 +78,7 @@ export default function ProjectsSectin() {
     }, []);
 
     return (
-        <section className="relative z-10 px-6 py-32 bg-[#0B0E14]" ref={containerRef}>
+        <section id="projects" className="relative z-10 px-6 py-32 bg-[#0B0E14]" ref={containerRef}>
             <div className="max-w-7xl mx-auto">
                 <h2 className="mb-16 text-4xl font-bold text-white">Projetos</h2>
 
@@ -86,7 +86,7 @@ export default function ProjectsSectin() {
                     {projects.map((project, index) => (
                         <div
                             key={project.id}
-                            className={`project-card flex flex-col lg:flex-row items-center gap-10 lg:gap-20 ${
+                            className={`project-card flex flex-col lg:flex-row items-center justify-around gap-10 lg:gap-20 ${
                                 index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
                             }`}
                         >
@@ -123,7 +123,7 @@ export default function ProjectsSectin() {
                                 </p>
                                 <a
                                     href={project.link}
-                                    className="inline-block rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40"
+                                    className="inline-block rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-indigo-500/30"
                                     target="_blank"
                                 >
                                     Ver Projeto

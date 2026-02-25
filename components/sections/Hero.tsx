@@ -1,5 +1,7 @@
 "use client";
 
+import ParticlesHome from "../ui/ParticlesHome";
+import SmoothScrollLink from "../ui/SmoothScrollLink";
 import { motion } from "framer-motion"
 
 export default function HeroSection() {
@@ -14,6 +16,7 @@ export default function HeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10"/>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.15),transparent_60%)]"/>
             </motion.div>
+            <ParticlesHome />
 
             <div className="relative z-10 flex h-full items-center">
                 <div className="max-w-7xl mx-auto px-6">
@@ -42,18 +45,18 @@ export default function HeroSection() {
                         transition={{ delay: 0.6, duration: 0.6 }}
                         className="mt-10 flex gap-6"
                     >
-                        <a
+                        <SmoothScrollLink
                             href="#projects"
                             className="rounded-full bg-indigo-500 px-8 py-4 text-sm font-semibold text-white transition hover:bg-indigo-400"
                         >
                             Ver Projetos
-                        </a>
-                        <a
+                        </SmoothScrollLink>
+                        <SmoothScrollLink
                             href="#contact"
-                            className="rounded-full border boder-white/20 px-8 py-4 text-sm font-semibold text-white transition hover:border-white/40"
+                            className="rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-indigo-500/30"
                         >
                             Entrar em Contato
-                        </a>
+                        </SmoothScrollLink>
                     </motion.div>
                 </div>
             </div>

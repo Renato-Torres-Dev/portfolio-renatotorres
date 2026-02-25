@@ -19,7 +19,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="relative z-10 px-6 py-32 bg-[#0B0E14]">
+    <section id="contact" className="relative z-10 px-6 py-32 bg-[#0B0E14]">
         <div className="max-w-7xl mx-auto">
             <h2 className="mb-12 text-4xl font-bold text-white text-center">Contato</h2>
 
@@ -81,7 +81,7 @@ export default function ContactSection() {
                 type="submit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="rounded-full bg-indigo-500 px-8 py-4 text-white font-semibold text-lg transition"
+                className="rounded-full bg-indigo-500 px-8 py-4 text-white font-semibold text-lg transition cursor-pointer"
                 >
                 Enviar Mensagem
                 </motion.button>
