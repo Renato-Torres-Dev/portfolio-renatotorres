@@ -8,6 +8,7 @@ const pt = {
   },
 
   manifesto: {
+    sectionTitle: "Manifesto",
     title:
       "Código não é só lógica. É experiência, movimento e intenção.",
     description:
@@ -15,32 +16,34 @@ const pt = {
   },
 
   timeline: {
+    title: "Timeline Profissional",
     experiences: [
       {
         year: "2023 - Presente",
         role: "Front-End Developer",
         company: "Grupo Moura",
         description:
-          "Responsável pela manutenção e atualização dos sites institucionais da empresa.",
+        "Responsável pela manutenção e atualização dos sites institucionais da empresa.",
       },
       {
         year: "2023 - 2024",
         role: "Front-End Developer",
         company: "Recife Centro",
         description:
-          "Desenvolvimento do site com integrações via API e redes sociais.",
+        "Desenvolvimento do site com integrações via API e redes sociais.",
       },
       {
         year: "2025",
         role: "Front-End Developer",
         company: "PAD Saúde",
         description:
-          "Criação do site e aplicação interna do sistema completo da clínica.",
+        "Criação do site e aplicação interna do sistema completo da clínica.",
       },
     ],
   },
-
+  
   projects: {
+    title: "Projetos",
     description: [
       {
         id: 1,
@@ -76,15 +79,62 @@ const pt = {
       },
     ]
   },
+  
+  skills: {
+    title: "Skills",
+    items: [
+      {
+        title: "React",
+        color: "#61dafb",
+      },
+      {
+        title: "NextJS",
+        color: "#ffffff",
+      },
+      {
+        title: "Tailwind CSS",
+        color: "#38bdf8",
+      },
+      {
+        title: "Framer Motion",
+        color: "#f000b8",
+      },
+      {
+        title: "GSAP",
+        color: "#88ce02",
+      },
+      {
+        title: "TypeScript",
+        color: "#3178c6",
+      },
+      {
+        title: "UI/UX Design",
+        color: "#facc15",
+      },
+      {
+        title: "PHP",
+        color: "#f50000ff",
+      },
+      {
+        title: "Acessibilidade",
+        color: "#e879f9",
+      },
+    ]
+  },
 
   contact: {
+    title: "Contato",
     name: "Nome",
     email: "Email",
     message: "Mensagem",
     submit: "Enviar Mensagem",
-    finishTitle: "Vamos Finalizar?",
-    finishSubtitle: "Vamos conversar?",
   },
+
+  footer: {
+    title: "Vamos finalizar?",
+    text: "Vamos conversar?",
+    subtext: "Estou disponível para projetos, freelas ou apenas para trocar ideias",
+  }
 };
 
 export default pt;

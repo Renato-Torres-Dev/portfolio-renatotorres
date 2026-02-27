@@ -42,7 +42,7 @@ export default function ContactSection({ dict }: ContactProps) {
   return (
     <section id="contact" className="relative z-10 px-6 py-32 bg-[#0B0E14]">
         <div className="max-w-7xl mx-auto">
-            <h2 className="mb-12 text-4xl font-bold text-white text-center">Contato</h2>
+            <h2 className="mb-12 text-4xl font-bold text-white text-center">{dict.contact.title}</h2>
 
             {submitted && (
                 <motion.div

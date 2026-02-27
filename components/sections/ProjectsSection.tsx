@@ -40,7 +40,7 @@ export default function ProjectsSection({ dict }: ProjectsProps) {
     return (
         <section id="projects" className="relative z-10 px-6 py-32 bg-[#0B0E14]" ref={containerRef}>
             <div className="max-w-7xl mx-auto">
-                <h2 className="mb-16 text-4xl font-bold text-white">Projetos</h2>
+                <h2 className="mb-16 text-4xl font-bold text-white">{dict.projects.title}</h2>
 
                 <div className="flex flex-col gap-32">
                     {dict.projects.description.map((project: any, index: number) => (

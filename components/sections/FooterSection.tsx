@@ -9,7 +9,11 @@ import FooterCursor from "../ui/Cursor";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function FooterSection() {
+interface FooterProps {
+  dict: any;
+}
+
+export default function FooterSection({ dict }: FooterProps) {
   const footerRef = useRef<HTMLElement | null>(null);
   const containerRef = useRef<HTMLElement | null>(null);
   const bgRef = useRef<HTMLDivElement>(null);
@@ -43,7 +47,7 @@ export default function FooterSection() {
   return (
     <>
       <section className="conclusion-section h-screen w-screen bg-[#0B0E14] flex items-center justify-center">
-        <h2 className="text-5xl font-bold text-white">Vamos finalizar?</h2>
+        <h2 className="text-5xl font-bold text-white">{dict.footer.title}</h2>
       </section>
 
       <footer
@@ -62,19 +66,19 @@ export default function FooterSection() {
           ref={containerRef}
           className="footer-container h-[75vh] w-screen flex flex-col items-center justify-center text-center px-6"
         >
-          <h3 className="text-3xl font-bold text-white mb-4">Vamos conversar?</h3>
+          <h3 className="text-3xl font-bold text-white mb-4">{dict.footer.text}</h3>
           <p className="text-white/70 mb-8 max-w-xl">
-            Estou disponível para projetos, freelas ou apenas para trocar ideias
+            {dict.footer.subtext}
           </p>
 
           <div className="flex gap-6 text-2xl text-white mb-8">
-            <MagneticIcon href="/" >
+            <MagneticIcon href="https://github.com/Renato-Torres-Dev" >
               <FaGithub />
             </MagneticIcon>
-            <MagneticIcon href="/" >
+            <MagneticIcon href="https://www.linkedin.com/in/renato-torres-dev/" >
               <FaLinkedin />
             </MagneticIcon>
-            <MagneticIcon href="/" >
+            <MagneticIcon href="https://www.instagram.com/renato.torres_dev/" >
               <FaInstagram />
             </MagneticIcon>
           </div>

@@ -20,6 +20,7 @@ export default function HeroSection({ dict }: HeroProps) {
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10"/>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.15),transparent_60%)]"/>
             </motion.div>
+            <ParticlesHome />
 
             <div className="relative z-10 flex h-full items-center">
                 <div className="max-w-7xl mx-auto px-6">

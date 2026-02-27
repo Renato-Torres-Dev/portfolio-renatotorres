@@ -5,29 +5,18 @@ import { useRef } from "react";
 import { useMagneticCard } from "@/hooks/useMagneticCard";
 import ParticlesConnect from "../ui/ParticlesConnect";
 
-interface Skill {
-  name: string;
-  color: string;
+interface SkillsProps {
+  dict: any;
 }
 
+
 interface SkillCardProps {
-  skill: Skill;
+  skill: any;
   delay: number;
 }
 
-
-const skills: Skill[] = [
-  { name: "React", color: "#61dafb" },
-  { name: "Next.js", color: "#ffffff" },
-  { name: "Tailwind CSS", color: "#38bdf8" },
-  { name: "Framer Motion", color: "#f000b8" },
-  { name: "GSAP", color: "#88ce02" },
-  { name: "TypeScript", color: "#3178c6" },
-  { name: "UI/UX", color: "#facc15" },
-  { name: "Acessibilidade", color: "#e879f9" },
-];
-
-export default function SkillsSection() {
+export default function SkillsSection({ dict }: SkillsProps) {
+  const skills = dict.skills.items;
   return (
     <section className="relative z-10 px-6 py-32">
       <motion.div
@@ -41,9 +30,9 @@ export default function SkillsSection() {
       </motion.div>
       <ParticlesConnect />
       <div className="max-w-7xl mx-auto">
-        <h2 className="mb-16 text-4xl font-bold text-white">Skills</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-10">
-          {skills.map((skill, index) => (
+        <h2 className="mb-16 text-4xl font-bold text-white">{dict.skills.title}</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {skills.map((skill: any, index: number) => (
             <SkillCard key={index} skill={skill} delay={index * 0.05} />
           ))}
         </div>
@@ -62,10 +51,10 @@ function SkillCard({ skill, delay }: SkillCardProps) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, delay }} // aceleramos a animação
+      transition={{ duration: 0.4, delay }}
       className="skill-card relative z-30 rounded-2xl p-8 text-center border border-white/10 cursor-pointer bg-white/5"
     >
-      <span className="block text-xl font-semibold text-white mb-2">{skill.name}</span>
+      <span className="block text-xl font-semibold text-white mb-2">{skill.title}</span>
       <div className="h-2 w-16 mx-auto rounded-full" style={{ backgroundColor: skill.color }} />
     </motion.div>
   );

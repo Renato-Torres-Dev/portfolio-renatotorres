@@ -52,7 +52,7 @@ export default function TimelineSection({ dict }: TimelineProps) {
             </motion.div>
             <ParticlesBackground />
             <div className="max-w-7xl mx-auto relative z-10">
-                <h2 className="mb-16 text-4xl font-bold text-white">Timeline Profissional</h2>
+                <h2 className="mb-16 text-4xl font-bold text-white">{dict.timeline.title}</h2>
 
                 <div className="relative ml-4 border-l-2 border-indigo-500">
                     {experiences.map((exp: any, index: number) => (

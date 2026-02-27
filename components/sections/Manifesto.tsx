@@ -51,7 +51,7 @@ export default function ManifestoSection({ dict }: ManifestoProps) {
                     transition={{ duration: 0.8 }}
                     className="mb-6 text-sm uppercase trancking-[0.3em] text-indigo-400"
                 >
-                    Manifesto
+                    {dict.manifesto.sectionTitle}
                 </motion.p>
 
                 <motion.h2

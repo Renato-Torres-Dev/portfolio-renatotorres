@@ -26,9 +26,9 @@ export default function Home({
       <Manifesto dict={dict}/>
       <TimelineSection dict={dict}/>
       <ProjectsSection dict={dict}/>
-      <SkillsSection />
+      <SkillsSection dict={dict}/>
       <ContactSection dict={dict}/>
-      <FooterSection />
+      <FooterSection dict={dict}/>
     </>
   )
 }
