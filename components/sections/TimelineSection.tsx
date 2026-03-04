@@ -40,18 +40,30 @@ export default function TimelineSection({ dict }: TimelineProps) {
     }, []);
 
     return (
-        <section className="relative z-10 px-6 py-32 bg-[#0B0E14]" ref={containerRef}>
-            <motion.div
-                initial={{ scale: 1.1 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 2, ease: "easeOut" }}
-                className="absolute inset-0"
-            >
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10"/>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.15),transparent_60%)]"/>
-            </motion.div>
-            <ParticlesBackground />
-            <div className="max-w-7xl mx-auto relative z-10">
+        <section className="relative w-full overflow-hidden" ref={containerRef}>
+            <div className="absolute inset-0 -z-20">
+                <div
+                    className="
+                        w-full
+                        h-full
+                        bg-center
+                        bg-cover
+                        bg-no-repeat
+                        bg-fixed
+                    "
+                    style={{
+                        backgroundImage: "url('bg-timeline.png')",
+                    }}
+                />
+            </div>
+
+            <div className="absolute inset-0 bg-[#0B0E14]/80 -z-10" />
+
+            <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#0B0E14] to-transparent z-10 pointer-events-none"/>
+
+            <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0B0E14] to-transparent z-10 pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto py-24 px-6 relative z-10">
                 <h2 className="mb-16 text-4xl font-bold text-white">{dict.timeline.title}</h2>
 
                 <div className="relative ml-4 border-l-2 border-indigo-500">
