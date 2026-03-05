@@ -40,22 +40,12 @@ export default function TimelineSection({ dict }: TimelineProps) {
     }, []);
 
     return (
-        <section className="relative w-full overflow-hidden" ref={containerRef}>
-            <div className="absolute inset-0 -z-20">
-                <div
-                    className="
-                        w-full
-                        h-full
-                        bg-center
-                        bg-cover
-                        bg-no-repeat
-                        bg-fixed
-                    "
-                    style={{
-                        backgroundImage: "url('bg-timeline.png')",
-                    }}
-                />
-            </div>
+        <section className="relative w-full min-h-screen" ref={containerRef}>
+            <div className="absolute inset-0 -z-20 bg-fixed bg-center bg-cover bg-no-repeat" 
+                style={{
+                    backgroundImage: "url('bg-timeline.png')",
+                }}
+            />
 
             <div className="absolute inset-0 bg-[#0B0E14]/80 -z-10" />
 
