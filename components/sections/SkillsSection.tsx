@@ -18,7 +18,7 @@ interface SkillCardProps {
 export default function SkillsSection({ dict }: SkillsProps) {
   const skills = dict.skills.items;
   return (
-    <section className="relative z-10 px-6 py-32">
+    <section className="relative z-10 px-6 py-32 bg-[#0B0E14]">
       <motion.div
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}

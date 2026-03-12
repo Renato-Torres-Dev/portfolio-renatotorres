@@ -52,7 +52,7 @@ export default function FooterSection({ dict }: FooterProps) {
 
       <footer
         ref={footerRef}
-        className="relative h-[75vh] w-screen overflow-hidden"
+        className="relative h-[75vh] w-screen overflow-hidden bg-[#0B0E14]"
       >
         <FooterCursor containerRef={footerRef} />
         <div
